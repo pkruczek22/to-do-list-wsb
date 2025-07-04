@@ -2,6 +2,8 @@
 
 A simple React-based To-Do List application that allows you to add and remove tasks.
 
+🚀 Live Demo: [https://pkruczek22.github.io/to-do-list-wsb](https://pkruczek22.github.io/to-do-list-wsb)
+
 ## Table of Contents
 
 - [Features](#features)
