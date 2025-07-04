@@ -12,6 +12,17 @@ function App() {
     { id: 2, content: "wyjść na spacer", done: true }
   ]);
 
+  const addNewTask = (content) => {
+    setTasks(tasks => [
+      ...tasks,
+      {
+        id: tasks.length ? tasks[tasks.length - 1].id + 1 : 1,
+        content,
+        done:false
+      }
+    ])
+  }
+
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
       if (task.id === id) {
@@ -31,7 +42,7 @@ function App() {
       <Header />
       <Section
         title="Add task"
-        body={<Form />}
+        body={<Form addNewTask={addNewTask}/>}
       />
       <Section
         title="Tasks list"
