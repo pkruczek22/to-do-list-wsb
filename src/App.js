@@ -4,6 +4,11 @@ import Form from "./components/Form"
 import Tasks from "./components/Tasks";
 import Container from "./components/Container"
 
+const tasks = [
+  { id: 1, content: "pozmywać naczynia", done: false },
+  { id: 1, content: "wyjść na spacer", done: true }
+]
+
 function App() {
   return (
     <Container>
@@ -14,7 +19,7 @@ function App() {
       />
       <Section
         title="Tasks list"
-        body={<Tasks />}
+        body={<Tasks tasks={tasks}/>}
       />
     </Container>
   );
