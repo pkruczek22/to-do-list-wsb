@@ -2,14 +2,20 @@ import Header from "./components/Header";
 import Section from "./components/Section";
 import Form from "./components/Form"
 import Tasks from "./components/Tasks";
-import Container from "./components/Container"
+import Container from "./components/Container";
+import { useState } from "react";
 
-const tasks = [
-  { id: 1, content: "pozmywać naczynia", done: false },
-  { id: 1, content: "wyjść na spacer", done: true }
-]
 
 function App() {
+  const [tasks, setTasks] = useState([
+    { id: 1, content: "pozmywać naczynia", done: false },
+    { id: 2, content: "wyjść na spacer", done: true }
+  ]);
+
+  const removeTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id))
+  };
+
   return (
     <Container>
       <Header />
@@ -19,7 +25,7 @@ function App() {
       />
       <Section
         title="Tasks list"
-        body={<Tasks tasks={tasks}/>}
+        body={<Tasks tasks={tasks} removeTask={removeTask}/>}
       />
     </Container>
   );
