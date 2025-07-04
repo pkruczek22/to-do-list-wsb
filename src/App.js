@@ -12,6 +12,16 @@ function App() {
     { id: 2, content: "wyjść na spacer", done: true }
   ]);
 
+  const toggleTaskDone = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if (task.id === id) {
+        return { ...task, done: !task.done };
+      }
+
+      return task;
+    }))
+  }
+
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id))
   };
@@ -25,7 +35,11 @@ function App() {
       />
       <Section
         title="Tasks list"
-        body={<Tasks tasks={tasks} removeTask={removeTask}/>}
+        body={
+          <Tasks
+            tasks={tasks}
+            removeTask={removeTask}
+            toggleTaskDone={toggleTaskDone} />}
       />
     </Container>
   );
